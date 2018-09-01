@@ -10,8 +10,10 @@ import androidx.fragment.app.Fragment
 import fi.jara.thesis.thesisnative.camera.CameraFragment
 import fi.jara.thesis.thesisnative.listitems.ListItemsFragment
 import kotlinx.android.synthetic.main.select_test_fragment.*
+import org.koin.android.ext.android.inject
 
 class SelectTestFragment: Fragment() {
+    private val viewNavigator: ViewNavigator by inject()
     private lateinit var testItemsAdapter: TestInfoAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +41,7 @@ class SelectTestFragment: Fragment() {
     }
 
     private fun startTest(test: TestInfo) {
-        Toast.makeText(requireContext(), R.string.test_not_implemented, Toast.LENGTH_SHORT).show()
+        viewNavigator.startTest(test)
     }
 
     private fun createTests(): List<TestInfo> {

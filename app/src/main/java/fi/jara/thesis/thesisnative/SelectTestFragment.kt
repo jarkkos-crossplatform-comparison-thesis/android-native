@@ -5,17 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
-import android.widget.ArrayAdapter
-import android.widget.ListAdapter
-import android.widget.TextView
+import android.widget.*
 import androidx.fragment.app.Fragment
 import fi.jara.thesis.thesisnative.camera.CameraFragment
 import fi.jara.thesis.thesisnative.listitems.ListItemsFragment
 import kotlinx.android.synthetic.main.select_test_fragment.*
 
 class SelectTestFragment: Fragment() {
-    lateinit var testItemsAdapter: TestInfoAdapter
+    private lateinit var testItemsAdapter: TestInfoAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,8 +25,21 @@ class SelectTestFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         test_list.adapter = testItemsAdapter
+    }
+
+    override fun onResume() {
+        super.onResume()
+        testItemsAdapter.setTestClickListener { startTest(it) }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        testItemsAdapter.setTestClickListener(null)
+    }
+
+    private fun startTest(test: TestInfo) {
+        Toast.makeText(requireContext(), R.string.test_not_implemented, Toast.LENGTH_SHORT).show()
     }
 
     private fun createTests(): List<TestInfo> {
@@ -44,6 +54,8 @@ class SelectTestFragment: Fragment() {
 data class TestInfo(val nameRes: Int, val descriptionRes: Int, val fragmentCreator: () -> Fragment)
 
 class TestInfoAdapter(context: Context, tests: List<TestInfo>): ArrayAdapter<TestInfo>(context, 0, tests) {
+    private var testClickListener: ((TestInfo) -> Unit)? = null
+
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val container = convertView ?: LayoutInflater.from(context).inflate(R.layout.test_list_item, parent, false)
         val test = getItem(position)!!
@@ -51,6 +63,14 @@ class TestInfoAdapter(context: Context, tests: List<TestInfo>): ArrayAdapter<Tes
         container.findViewById<TextView>(R.id.test_title).setText(test.nameRes)
         container.findViewById<TextView>(R.id.test_description).setText(test.descriptionRes)
 
+        container.setOnClickListener {
+            testClickListener?.invoke(test)
+        }
+
         return container
+    }
+
+    fun setTestClickListener(listener: ((TestInfo) -> Unit)?) {
+        this.testClickListener = listener
     }
 }

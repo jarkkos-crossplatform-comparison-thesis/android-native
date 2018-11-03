@@ -34,6 +34,4 @@ dependencies {
     implementation deps.androidAppcompat
     implementation deps.constraintLayout
     implementation deps.materialDesign
-
-    implementation deps.koin
 }

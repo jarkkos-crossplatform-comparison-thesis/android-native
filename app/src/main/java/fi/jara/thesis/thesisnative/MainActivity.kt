@@ -2,27 +2,33 @@ package fi.jara.thesis.thesisnative
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import org.koin.android.ext.android.inject
+import androidx.fragment.app.FragmentManager
 
 class MainActivity : AppCompatActivity() {
-    val viewNavigator: ViewNavigator by inject()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
 
-        viewNavigator.activity = this
-
         if (savedInstanceState == null) {
             val curFragment = supportFragmentManager.findFragmentById(R.id.app_container)
             if (curFragment == null) {
-                viewNavigator.gotoSelectTestView()
+                showLandingScreen()
             }
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        viewNavigator.activity = null
+    private fun showLandingScreen() {
+        supportFragmentManager.apply {
+            popBackStack(BACKSTACK_ROOT, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+
+            beginTransaction()
+                    .replace(R.id.app_container, SelectTestFragment())
+                    .addToBackStack(BACKSTACK_ROOT)
+                    .commit()
+        }
+    }
+
+    companion object {
+        private const val BACKSTACK_ROOT = "backstack_root"
     }
 }

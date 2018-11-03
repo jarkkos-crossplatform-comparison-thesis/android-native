@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_selectTestFragment_to_computationFragment"
             app:destination="@id/computationTest" />
+        <action
+            android:id="@+id/action_selectTestFragment_to_thirdPartyNoticesFragment"
+            app:destination="@id/thirdPartyNoticesScreen" />
     </fragment>
     <fragment
         android:id="@+id/buttonLatencyTest"
@@ -43,4 +46,8 @@
         android:id="@+id/vibrationLatencyTest"
         android:name="fi.jara.thesis.thesisnative.vibration.VibrationFragment"
         android:label="@string/test_vibration_latency_name" />
+    <fragment
+        android:id="@+id/thirdPartyNoticesScreen"
+        android:name="fi.jara.thesis.thesisnative.ThirdPartyNoticesFragment"
+        android:label="@string/third_party_notices_name" />
 </navigation>

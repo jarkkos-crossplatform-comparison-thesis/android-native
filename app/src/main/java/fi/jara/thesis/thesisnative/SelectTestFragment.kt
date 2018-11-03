@@ -34,6 +34,7 @@ class SelectTestFragment: Fragment() {
         open_network_listview_screen_btn.setOnClickListener { showNetworkListItemsScreen() }
         open_heavy_computation_screen_btn.setOnClickListener { showComputationScreen() }
         open_vibration_latency_screen_btn.setOnClickListener { showVibrationLatencyScreen() }
+        open_third_party_notices_screen_btn.setOnClickListener { showThirdPartyNoticesScreen() }
     }
 
     override fun onDestroyView() {
@@ -44,6 +45,7 @@ class SelectTestFragment: Fragment() {
         open_network_listview_screen_btn.setOnClickListener(null)
         open_heavy_computation_screen_btn.setOnClickListener(null)
         open_vibration_latency_screen_btn.setOnClickListener(null)
+        open_third_party_notices_screen_btn.setOnClickListener(null)
     }
 
     private fun showButtonLatencyScreen() {
@@ -64,5 +66,9 @@ class SelectTestFragment: Fragment() {
 
     private fun showVibrationLatencyScreen() {
         navController?.navigate(R.id.vibrationLatencyTest)
+    }
+
+    private fun showThirdPartyNoticesScreen() {
+        navController?.navigate(R.id.thirdPartyNoticesScreen)
     }
 }

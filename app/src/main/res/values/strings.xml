@@ -15,4 +15,5 @@
     <string name="test_vibration_latency_name">Vibration latency</string>
     <string name="test_not_implemented">Test not implemented</string>
     <string name="third_party_notices_name">Third party notices</string>
+    <string name="click_me">Click me!</string>
 </resources>

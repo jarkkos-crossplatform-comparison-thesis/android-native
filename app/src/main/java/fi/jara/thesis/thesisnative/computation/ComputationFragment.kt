@@ -9,6 +9,6 @@ import fi.jara.thesis.thesisnative.R
 
 class ComputationFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.test_not_implemented, container, false)
+        return inflater.inflate(R.layout.button_async_result, container, false)
     }
 }

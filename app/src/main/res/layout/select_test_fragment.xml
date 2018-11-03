@@ -36,7 +36,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:contentDescription="@string/android_logo"
-            android:src="@drawable/graduapp_logo"
+            android:src="@drawable/ic_android_robot"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -47,7 +47,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:contentDescription="@string/android_logo"
-            android:src="@drawable/graduapp_logo"
+            android:src="@drawable/ic_android_robot"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

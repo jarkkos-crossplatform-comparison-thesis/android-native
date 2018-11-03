@@ -2,7 +2,7 @@
     <string name="app_name">Thesis Native</string>
     <string name="main_title">Thesis benchmarking</string>
 
-    <string name="android_logo">Android logo</string>
+    <string name="android_logo">Android robot logo</string>
 
     <string name="tool_name">Android SDK</string>
     <string name="select_test_prompt">Select a test</string>

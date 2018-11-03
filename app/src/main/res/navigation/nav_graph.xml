@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/selectTestFragment">
+
+    <fragment
+        android:id="@+id/selectTestFragment"
+        android:name="fi.jara.thesis.thesisnative.SelectTestFragment"
+        android:label="@string/main_title" >
+        <action
+            android:id="@+id/action_selectTestFragment_to_buttonLatencyFragment"
+            app:destination="@id/buttonLatencyTest" />
+        <action
+            android:id="@+id/action_selectTestFragment_to_listLocalItemsFragment"
+            app:destination="@id/listLocalItemsTest" />
+        <action
+            android:id="@+id/action_selectTestFragment_to_listNetworkItemsFragment2"
+            app:destination="@id/listNetworkItemsTest" />
+        <action
+            android:id="@+id/action_selectTestFragment_to_vibrationFragment"
+            app:destination="@id/vibrationLatencyTest" />
+        <action
+            android:id="@+id/action_selectTestFragment_to_computationFragment"
+            app:destination="@id/computationTest" />
+    </fragment>
+    <fragment
+        android:id="@+id/buttonLatencyTest"
+        android:name="fi.jara.thesis.thesisnative.buttonlatency.ButtonLatencyFragment"
+        android:label="@string/test_button_latency_name" />
+    <fragment
+        android:id="@+id/listLocalItemsTest"
+        android:name="fi.jara.thesis.thesisnative.listitems.ListItemsFragment"
+        android:label="@string/test_local_listview_name" />
+    <fragment
+        android:id="@+id/listNetworkItemsTest"
+        android:name="fi.jara.thesis.thesisnative.listitems.ListItemsFragment"
+        android:label="@string/test_network_listview_name" />
+    <fragment
+        android:id="@+id/computationTest"
+        android:name="fi.jara.thesis.thesisnative.computation.ComputationFragment"
+        android:label="@string/test_heavy_computation_name" />
+    <fragment
+        android:id="@+id/vibrationLatencyTest"
+        android:name="fi.jara.thesis.thesisnative.vibration.VibrationFragment"
+        android:label="@string/test_vibration_latency_name" />
+</navigation>

@@ -2,23 +2,16 @@
     <string name="app_name">Thesis Native</string>
     <string name="main_title">Thesis benchmarking</string>
 
+    <string name="android_logo">Android logo</string>
+
     <string name="tool_name">Android SDK</string>
     <string name="select_test_prompt">Select a test</string>
 
-    <string name="test_camera_name">Camera</string>
-    <string name="test_camera_description">Camera startup speed and image retrieval</string>
 
-    <string name="test_local_list_name">Local list</string>
-    <string name="test_local_list_description">Long list of items loaded from disk</string>
-
-
-    <string name="test_web_list_name">Network list</string>
-    <string name="test_web_list_description">Long list of items loaded from Internet</string>
-    <string name="test_not_implemented">Test not implemented</string>
-    <string name="android_logo">Android logo</string>
     <string name="test_button_latency_name">Button latency</string>
     <string name="test_local_listview_name">Local listview</string>
     <string name="test_network_listview_name">Network listview</string>
     <string name="test_heavy_computation_name">Heavy computation</string>
     <string name="test_vibration_latency_name">Vibration latency</string>
+    <string name="test_not_implemented">Test not implemented</string>
 </resources>

@@ -5,23 +5,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import fi.jara.thesis.thesisnative.buttonlatency.ButtonLatencyFragment
-import fi.jara.thesis.thesisnative.computation.ComputationFragment
-import fi.jara.thesis.thesisnative.listitems.ListItemsFragment
-import fi.jara.thesis.thesisnative.vibration.VibrationFragment
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.select_test_fragment.*
 
 class SelectTestFragment: Fragment() {
-    private var appNavigator: AppNavigator? = null
+    private var navController: NavController? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        appNavigator = activity as AppNavigator
+        navController = findNavController()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        appNavigator = null
+        navController = null
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -49,22 +47,22 @@ class SelectTestFragment: Fragment() {
     }
 
     private fun showButtonLatencyScreen() {
-        appNavigator?.showFragment(ButtonLatencyFragment())
+        navController?.navigate(R.id.buttonLatencyTest)
     }
 
     private fun showLocalListItemsScreen() {
-        appNavigator?.showFragment(ListItemsFragment())
+        navController?.navigate(R.id.listLocalItemsTest)
     }
 
     private fun showNetworkListItemsScreen() {
-        appNavigator?.showFragment(ListItemsFragment())
+        navController?.navigate(R.id.listNetworkItemsTest)
     }
 
     private fun showComputationScreen() {
-        appNavigator?.showFragment(ComputationFragment())
+        navController?.navigate(R.id.computationTest)
     }
 
     private fun showVibrationLatencyScreen() {
-        appNavigator?.showFragment(VibrationFragment())
+        navController?.navigate(R.id.vibrationLatencyTest)
     }
 }

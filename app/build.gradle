@@ -1,8 +1,9 @@
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+
+apply plugin: "androidx.navigation.safeargs"
 
 android {
     compileSdkVersion versions.compileSdk
@@ -44,4 +45,7 @@ dependencies {
     implementation deps.androidAppcompat
     implementation deps.constraintLayout
     implementation deps.materialDesign
+
+    implementation deps.jetpackNavigationFragment
+    implementation deps.jetpackNavigationUi
 }

@@ -13,13 +13,23 @@ android {
         versionCode versions.versionCode
         versionName versions.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            resValue "string", "app_version_name", "version ${versions.versionName}"
+        }
+
+        debug {
+            resValue "string", "app_version_name", "version ${versions.versionName} DEBUG"
         }
     }
+
+
 }
 
 dependencies {

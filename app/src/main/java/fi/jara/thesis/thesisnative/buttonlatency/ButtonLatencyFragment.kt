@@ -1,4 +1,4 @@
-package fi.jara.thesis.thesisnative.listitems
+package fi.jara.thesis.thesisnative.buttonlatency
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import fi.jara.thesis.thesisnative.R
 import kotlinx.android.synthetic.main.test_not_implemented.*
 
-class ListItemsFragment: Fragment() {
+class ButtonLatencyFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.test_not_implemented, container, false)
     }

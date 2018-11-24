@@ -29,23 +29,23 @@ class SelectTestFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        open_button_latency_screen_btn.setOnClickListener { showButtonLatencyScreen() }
-        open_local_listview_screen_btn.setOnClickListener { showLocalListItemsScreen() }
-        open_network_listview_screen_btn.setOnClickListener { showNetworkListItemsScreen() }
-        open_heavy_computation_screen_btn.setOnClickListener { showComputationScreen() }
-        open_vibration_latency_screen_btn.setOnClickListener { showVibrationLatencyScreen() }
-        open_third_party_notices_screen_btn.setOnClickListener { showThirdPartyNoticesScreen() }
+        open_button_latency_screen_btn.setOnTouchDownListener { _, _ -> showButtonLatencyScreen() }
+        open_local_listview_screen_btn.setOnTouchDownListener { _, _ -> showLocalListItemsScreen() }
+        open_network_listview_screen_btn.setOnTouchDownListener { _, _ -> showNetworkListItemsScreen() }
+        open_heavy_computation_screen_btn.setOnTouchDownListener { _, _ -> showComputationScreen() }
+        open_vibration_latency_screen_btn.setOnTouchDownListener { _, _ -> showVibrationLatencyScreen() }
+        open_third_party_notices_screen_btn.setOnTouchDownListener { _, _ -> showThirdPartyNoticesScreen() }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
 
-        open_button_latency_screen_btn.setOnClickListener(null)
-        open_local_listview_screen_btn.setOnClickListener(null)
-        open_network_listview_screen_btn.setOnClickListener(null)
-        open_heavy_computation_screen_btn.setOnClickListener(null)
-        open_vibration_latency_screen_btn.setOnClickListener(null)
-        open_third_party_notices_screen_btn.setOnClickListener(null)
+        open_button_latency_screen_btn.setOnTouchDownListener(null)
+        open_local_listview_screen_btn.setOnTouchDownListener(null)
+        open_network_listview_screen_btn.setOnTouchDownListener(null)
+        open_heavy_computation_screen_btn.setOnTouchDownListener(null)
+        open_vibration_latency_screen_btn.setOnTouchDownListener(null)
+        open_third_party_notices_screen_btn.setOnTouchDownListener(null)
     }
 
     private fun showButtonLatencyScreen() {

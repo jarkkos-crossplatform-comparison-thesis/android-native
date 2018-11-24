@@ -2,7 +2,7 @@
 
 buildscript {
     ext.versions = [
-            "kotlin"           : "1.3.0",
+            "kotlin"           : "1.3.10",
             "gradlePlugin"     : "3.2.1",
 
             "compileSdk"       : 28,
@@ -20,6 +20,8 @@ buildscript {
             "constraintLayout" : "1.1.3",
             "materialDesign"   : "1.0.0-rc01",
 
+            "coroutines": "1.0.1",
+
             "jetpackNavigation": "1.0.0-alpha07"
     ]
 
@@ -34,6 +36,9 @@ buildscript {
             "androidAppcompat"         : "androidx.appcompat:appcompat:${versions.androidAppcompat}",
             "constraintLayout"         : "androidx.constraintlayout:constraintlayout:${versions.constraintLayout}",
             "materialDesign"           : "com.google.android.material:material:${versions.materialDesign}",
+
+            "coroutinesCore": "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines}",
+            "coroutinesAndroid": "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutines}",
 
             "jetpackNavigationFragment": "android.arch.navigation:navigation-fragment-ktx:${versions.jetpackNavigation}",
             "jetpackNavigationUi"      : "android.arch.navigation:navigation-ui-ktx:${versions.jetpackNavigation}",

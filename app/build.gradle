@@ -46,6 +46,9 @@ dependencies {
     implementation deps.constraintLayout
     implementation deps.materialDesign
 
+    implementation deps.coroutinesCore
+    implementation deps.coroutinesAndroid
+
     implementation deps.jetpackNavigationFragment
     implementation deps.jetpackNavigationUi
 }

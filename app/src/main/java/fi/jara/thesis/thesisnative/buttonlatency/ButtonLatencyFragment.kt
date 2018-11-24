@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import fi.jara.thesis.thesisnative.R
+import fi.jara.thesis.thesisnative.setOnTouchDownListener
 import kotlinx.android.synthetic.main.button_and_state.*
 
 class ButtonLatencyFragment: Fragment() {
@@ -25,7 +26,9 @@ class ButtonLatencyFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         report_test_state_text.text = numBtnClicked.toString()
 
-        do_action_button.setOnClickListener { incrementCounter() }
+        do_action_button.setOnTouchDownListener { _, _ ->
+            incrementCounter()
+        }
     }
 
     override fun onDestroyView() {

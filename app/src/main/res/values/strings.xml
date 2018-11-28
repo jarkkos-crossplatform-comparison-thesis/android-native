@@ -20,4 +20,5 @@
     <string name="test_state_idle">Click the button to start</string>
     <string name="test_state_computing">Computing…</string>
     <string name="test_state_done">Done</string>
+    <string name="error_loading_listitem_data">Error loading data %1$s</string>
 </resources>

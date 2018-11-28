@@ -8,22 +8,24 @@
         android:name="fi.jara.thesis.thesisnative.SelectTestFragment"
         android:label="@string/main_title" >
         <action
-            android:id="@+id/action_selectTestFragment_to_buttonLatencyFragment"
+            android:id="@+id/open_button_latency_screen"
             app:destination="@id/buttonLatencyTest" />
         <action
-            android:id="@+id/action_selectTestFragment_to_listLocalItemsFragment"
-            app:destination="@id/listLocalItemsTest" />
+            android:id="@+id/open_filesystem_listitems_screen"
+            app:destination="@id/localListItemsTest">
+        </action>
         <action
-            android:id="@+id/action_selectTestFragment_to_listNetworkItemsFragment2"
-            app:destination="@id/listNetworkItemsTest" />
+            android:id="@+id/open_network_listitems_screen"
+            app:destination="@id/networkListItemsTest">
+        </action>
         <action
-            android:id="@+id/action_selectTestFragment_to_vibrationFragment"
+            android:id="@+id/open_vibration_latency_screen"
             app:destination="@id/vibrationLatencyTest" />
         <action
-            android:id="@+id/action_selectTestFragment_to_computationFragment"
+            android:id="@+id/open_heavy_computation_screen"
             app:destination="@id/computationTest" />
         <action
-            android:id="@+id/action_selectTestFragment_to_thirdPartyNoticesFragment"
+            android:id="@+id/open_third_party_notices_screen"
             app:destination="@id/thirdPartyNoticesScreen" />
     </fragment>
     <fragment
@@ -31,13 +33,23 @@
         android:name="fi.jara.thesis.thesisnative.buttonlatency.ButtonLatencyFragment"
         android:label="@string/test_button_latency_name" />
     <fragment
-        android:id="@+id/listLocalItemsTest"
+        android:id="@+id/localListItemsTest"
         android:name="fi.jara.thesis.thesisnative.listitems.ListItemsFragment"
-        android:label="@string/test_local_listview_name" />
+        android:label="@string/test_local_listview_name">
+        <argument
+            android:name="useNetwork"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
     <fragment
-        android:id="@+id/listNetworkItemsTest"
+        android:id="@+id/networkListItemsTest"
         android:name="fi.jara.thesis.thesisnative.listitems.ListItemsFragment"
-        android:label="@string/test_network_listview_name" />
+        android:label="@string/test_network_listview_name">
+        <argument
+            android:name="useNetwork"
+            app:argType="boolean"
+            android:defaultValue="true" />
+    </fragment>
     <fragment
         android:id="@+id/computationTest"
         android:name="fi.jara.thesis.thesisnative.computation.ComputationFragment"

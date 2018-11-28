@@ -49,26 +49,26 @@ class SelectTestFragment: Fragment() {
     }
 
     private fun showButtonLatencyScreen() {
-        navController?.navigate(R.id.buttonLatencyTest)
+        navController?.navigate(SelectTestFragmentDirections.openButtonLatencyScreen())
     }
 
     private fun showLocalListItemsScreen() {
-        navController?.navigate(R.id.listLocalItemsTest)
+        navController?.navigate(SelectTestFragmentDirections.openFilesystemListitemsScreen())
     }
 
     private fun showNetworkListItemsScreen() {
-        navController?.navigate(R.id.listNetworkItemsTest)
+        navController?.navigate(SelectTestFragmentDirections.openNetworkListitemsScreen())
     }
 
     private fun showComputationScreen() {
-        navController?.navigate(R.id.computationTest)
+        navController?.navigate(SelectTestFragmentDirections.openHeavyComputationScreen())
     }
 
     private fun showVibrationLatencyScreen() {
-        navController?.navigate(R.id.vibrationLatencyTest)
+        navController?.navigate(SelectTestFragmentDirections.openVibrationLatencyScreen())
     }
 
     private fun showThirdPartyNoticesScreen() {
-        navController?.navigate(R.id.thirdPartyNoticesScreen)
+        navController?.navigate(SelectTestFragmentDirections.openThirdPartyNoticesScreen())
     }
 }

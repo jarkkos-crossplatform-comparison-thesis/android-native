@@ -15,7 +15,7 @@ import kotlin.math.roundToLong
 import kotlin.math.sqrt
 
 class ComputationFragment : Fragment() {
-    private val coroutineScope = CoroutineScope(Dispatchers.Default)
+    private val coroutineScope = CoroutineScope(Dispatchers.Main)
     private var asyncComputationJob: Job? = null
 
 
@@ -42,12 +42,10 @@ class ComputationFragment : Fragment() {
 
         asyncComputationJob?.cancel()
         asyncComputationJob = coroutineScope.launch {
-            val primes = findPrimesBelow(3_000_000)
+            val primes = async(Dispatchers.Default) { findPrimesBelow(3_000_000) }.await()
 
-            withContext(Dispatchers.Main) {
-                progressbar.visibility = View.GONE
-                report_test_state_text.setText(R.string.test_state_done)
-            }
+            progressbar.visibility = View.GONE
+            report_test_state_text.setText(R.string.test_state_done)
         }
     }
 

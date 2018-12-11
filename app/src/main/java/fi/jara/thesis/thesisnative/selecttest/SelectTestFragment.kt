@@ -1,4 +1,4 @@
-package fi.jara.thesis.thesisnative
+package fi.jara.thesis.thesisnative.selecttest
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
+import fi.jara.thesis.thesisnative.R
+import fi.jara.thesis.thesisnative.selecttest.SelectTestFragmentDirections
+import fi.jara.thesis.thesisnative.setOnTouchDownListener
 import kotlinx.android.synthetic.main.select_test_fragment.*
 
 class SelectTestFragment: Fragment() {

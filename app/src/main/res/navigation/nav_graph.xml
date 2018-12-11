@@ -5,7 +5,7 @@
 
     <fragment
         android:id="@+id/selectTestFragment"
-        android:name="fi.jara.thesis.thesisnative.SelectTestFragment"
+        android:name="fi.jara.thesis.thesisnative.selecttest.SelectTestFragment"
         android:label="@string/main_title" >
         <action
             android:id="@+id/open_button_latency_screen"
@@ -60,6 +60,6 @@
         android:label="@string/test_vibration_latency_name" />
     <fragment
         android:id="@+id/thirdPartyNoticesScreen"
-        android:name="fi.jara.thesis.thesisnative.ThirdPartyNoticesFragment"
+        android:name="fi.jara.thesis.thesisnative.thirdpartynotices.ThirdPartyNoticesFragment"
         android:label="@string/third_party_notices_name" />
 </navigation>

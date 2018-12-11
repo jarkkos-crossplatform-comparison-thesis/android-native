@@ -5,10 +5,16 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: "androidx.navigation.safeargs"
 
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
 android {
     compileSdkVersion versions.compileSdk
     defaultConfig {
-        applicationId "fi.jara.thesis.thesisnative"
+        applicationId "fi.jarkkos.thesisbenchmarking.androidnative"
         minSdkVersion versions.minSdk
         targetSdkVersion versions.targetSdk
         versionCode versions.versionCode
@@ -17,9 +23,24 @@ android {
 
     }
 
+
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+        }
+    }
+
+
     buildTypes {
         release {
-            minifyEnabled false
+            signingConfig signingConfigs.release
+
+            minifyEnabled true
+            useProguard true
+
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
             resValue "string", "app_version_name", "version ${versions.versionName}"

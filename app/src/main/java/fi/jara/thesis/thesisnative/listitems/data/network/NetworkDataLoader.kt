@@ -6,6 +6,6 @@ import java.net.URL
 
 class NetworkDataLoader: ListDataLoader() {
     override fun getItemsInputStream(): InputStream {
-        return URL("192.168.1.42/androidnative/listItems.json").openStream()
+        return URL("http://192.168.1.158/thesis/listItems.json").openStream()
     }
 }

@@ -6,32 +6,29 @@ import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import fi.jara.thesis.thesisnative.R
 import fi.jara.thesis.thesisnative.setOnTouchDownListener
-import kotlinx.android.synthetic.main.button_async_result.*
+import kotlinx.android.synthetic.main.vibration_latency.*
 
 class VibrationFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.button_and_state, container, false)
+        return inflater.inflate(R.layout.vibration_latency, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        report_test_state_text.visibility = View.GONE
 
-        do_action_button.setOnTouchDownListener { _, _ ->
+        vibrate_button.setOnTouchDownListener { _, _ ->
             vibrateDevice()
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        do_action_button.setOnTouchDownListener(null)
+        vibrate_button.setOnTouchDownListener(null)
     }
 
     private fun vibrateDevice() {

@@ -29,18 +29,14 @@ class ListItemsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if (ListItemsFragmentArgs.fromBundle(arguments).useNetwork) {
+        val args = arguments
+        if (args != null && ListItemsFragmentArgs.fromBundle(args).useNetwork) {
             dataLoder = NetworkDataLoader()
             imageLoader = NetworkImageLoader()
         } else {
-
             dataLoder = AssetsListDataLoader(requireContext())
             imageLoader = AssetsImageLoader(requireContext())
         }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -59,7 +55,6 @@ class ListItemsFragment : Fragment() {
         super.onStart()
 
         items_recyclerview.visibility = View.GONE
-        items_loading_indicator.visibility = View.VISIBLE
         dataLoadingJob = coroutineScope.launch {
             try {
                 val data = dataLoder.loadItems()
@@ -68,9 +63,6 @@ class ListItemsFragment : Fragment() {
                 items_recyclerview.adapter = ListItemAdapter(data, imageLoader, coroutineScope)
             } catch (e: IOException) {
                 Toast.makeText(requireContext(), resources.getString(R.string.error_loading_listitem_data, e.localizedMessage), Toast.LENGTH_LONG).show()
-            }
-            finally {
-                items_loading_indicator.visibility = View.GONE
             }
         }
     }

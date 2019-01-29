@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import fi.jara.thesis.thesisnative.R
 import fi.jara.thesis.thesisnative.setOnTouchDownListener
 import kotlinx.android.synthetic.main.button_latency.*
@@ -29,11 +30,16 @@ class ButtonLatencyFragment: Fragment() {
         increment_counter_button.setOnTouchDownListener { _, _ ->
             incrementCounter()
         }
+
+        navigate_back_button.setOnTouchDownListener { _, _ ->
+            findNavController().popBackStack()
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         increment_counter_button.setOnClickListener(null)
+        navigate_back_button.setOnClickListener(null)
     }
 
     private fun incrementCounter() {

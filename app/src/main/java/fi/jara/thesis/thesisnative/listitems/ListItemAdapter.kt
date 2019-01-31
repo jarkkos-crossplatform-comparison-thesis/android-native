@@ -37,6 +37,7 @@ class ListItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun bind(item: ListItem, imageLoader: ImageLoader, coroutineScope: CoroutineScope) {
         itemDescription.text = item.description
+        itemImage.setImageBitmap(null)
 
         imageLoadingJob?.cancel()
         imageLoadingJob = coroutineScope.launch {

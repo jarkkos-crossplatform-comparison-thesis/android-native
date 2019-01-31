@@ -8,8 +8,8 @@ buildscript {
             "compileSdk"       : 28,
             "targetSdk"        : 28,
             "minSdk"           : 19,
-            "versionCode"      : 3,
-            "versionName"      : "1.3",
+            "versionCode"      : 4,
+            "versionName"      : "1.4",
 
             "junit"            : "4.12",
 
